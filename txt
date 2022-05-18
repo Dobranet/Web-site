@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  name  String?
+  articles Article[]
+  isLoggedIn Boolean @default(false)
+}
+
+model Article {
+  id        Int      @default(autoincrement()) @id
+  title     String
+  content   String?
+  published Boolean? @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}
+
+
+.env
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB (Preview) and CockroachDB (Preview).
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+DATABASE_URL="postgres://nhdjizbqmknudg:7d37fc1715cad88502e7ce1c052816f702bba6aee6942a66126081640e4e4ea1@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/d4v5gtjjubm7dn"
+SHADOW_DATABASE_URL="postgres://kdsdmrwfnpocfr:59219db499370e0794d7b80a02afa69e2600efb92638abcf304922d3a4c0e8e4@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/dacn6lpaokl4d3"
+
+
