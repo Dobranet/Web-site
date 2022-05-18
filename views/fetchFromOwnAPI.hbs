@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  {{>common}}
+  <script src="JS/fetchFromOwnAPI.js"></script>
+  <script src="JS/CRUD/user/createUser.js"></script>
+  <script src="JS/CRUD/article/createArticle.js"></script>
+</head>
+
+<body>
+  {{>header}}
+  {{>createUser}}
+  {{>createArticle}}
+  {{>fetchContentFromOwnAPI}}
+  {{>footer}}
+</body>
+
+</html>

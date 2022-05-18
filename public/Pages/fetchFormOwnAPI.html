@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+
+    <script src="JS/fetchFromOwnAPI.js"></script>
+    <script src="JS/CRUD/user/createUser.js"></script>
+    <script src="JS/CRUD/article/createArticle.js"></script>
+
+</head>
+<body>
+
+<form class="crudforms">
+  <h2>Create new User</h2>
+  <div>
+    <label for="email">Email</label>
+    <input name="email" id="email">
+  </div>
+  <div>
+    <label for="name">Name</label>
+    <input name="name" id="name">
+  </div>
+  <div>
+    <button type="button" id="createUserButton" onclick="createUser()" class="btn btn--red">Create User</button>
+  </div>
+</form>
+
+
+<form class="crudforms">
+  <h2>Create new Article</h2>
+  <div>
+    <label for="title">Title</label>
+    <input name="title" id="title">
+  </div>
+  <div>
+    <label for="content">Content</label>
+    <input name="content" id="content">
+  </div>
+  <div>
+    <label for="authorId">AuthorID</label>
+    <input name="authorId" id="authorId">
+  </div>
+  <div>
+    <button type="button" id="createArticleButton" onclick="createArticle()" class="btn btn--red">Create Article</button>
+  </div>
+</form>
+
+
+<main>
+  <section class="fetch">
+    <button class="fetch__button" id="btn" onclick="run()" type="button" name="button">Load</button>
+   <section class="fetch__table table">
+
+
+    </section>
+    <p class="fetch__oops">Oops! something went wrong &#x1F631;</p>
+  </section>
+  <template id="header__template">
+    <div class="fetch__table__row">
+      <div class="fetch__table__cell table__cell table__header">
+        User ID
+      </div>
+      <div class="fetch__table__cell table__cell table__header">
+        Article ID
+      </div>
+      <div class="fetch__table__cell table__cell table__header">
+        Title
+      </div>
+      <div class="fetch__table__cell table__cell table__header">
+        published?
+      </div>
+    </div>
+  </template>
+  <template id="fetch-row">
+    <div class="fetch__table__row">
+      <div class="fetch__table__cell table__cell table__row__authorId">
+      </div>
+      <div class="fetch__table__cell table__cell table__row__articleId">
+      </div>
+      <div class="fetch__table__cell table__cell table__row__title">
+      </div>
+      <div class="fetch__table__cell table__cell table__row__published">
+      </div>
+    </div>
+  </template>
+
+
+</main>
+
+</body>
+</html>
